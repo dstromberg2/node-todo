@@ -1,1 +1,5 @@
-## ToDo App in NodeJS ##
+## ToDo App in Node ##
+
+Utilizes Express, Sequelize.
+
+Database store in MySQL.
