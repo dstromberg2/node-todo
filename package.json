@@ -1,0 +1,14 @@
+{
+  "name"         : "node-todo",
+  "version"      : "0.0.0",
+  "description"  : "Simple todo application.",
+  "main"         : "server.js",
+  "author"       : "dstromberg2",
+  "dependencies" : {
+    "express"    : "~4.7.2",
+    "body-parser": "~1.5.2",
+    "mysql"      : "~2.8.0",
+    "sequelize"  : "~3.4.1",
+    "sequelize-cli" : "~1.7.3"
+  }
+}
