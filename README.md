@@ -1,5 +1,5 @@
 ## ToDo App in Node ##
 
-Utilizes Express, Sequelize.
+Utilizes Express, Sequelize, Angular.
 
 Database store in MySQL.
