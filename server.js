@@ -20,11 +20,11 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({'extended':'true'}));
 app.use(bodyParser.json());
 
-app.get('/api/list', function(req, res) {
+app.get('/api/item/list', function(req, res) {
   res.json(getAll(Item));
 });
 
-app.post('/api/create', function(req, res) {
+app.post('/api/item/create', function(req, res) {
   Item.build({title: req.body.title, body: req.body.body, status: 0}).save()
   .then(function(newitem) {
     Item.findAll().then(function(items) {
@@ -35,7 +35,7 @@ app.post('/api/create', function(req, res) {
   });
 });
 
-app.post('/api/update/:id', function(req, res) {
+app.post('/api/item/update/:id', function(req, res) {
   Item.findById(req.params.id).then(function(item) {
     item.status = req.body.status;
     item.save().then(function(newitem) {
@@ -48,7 +48,7 @@ app.post('/api/update/:id', function(req, res) {
   });
 });
 
-app.post('/api/delete/:id', function(req, res) {
+app.post('/api/item/delete/:id', function(req, res) {
   Item.findById(req.params.id).then(function(item) {
     item.destroy().then(function() {
       Item.findAll().then(function(items) {
