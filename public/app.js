@@ -1,7 +1,6 @@
-var todo = angular.module('todo', []);
-
-function mainController($scope, $http) {
+angular.module('todo', []).controller('todoController', function todoController($scope, $http) {
   $scope.formData = {};
+  $scope.checkStatus = {};
 
   $http.get('/api/item/list').success(function(data) {
     $scope.items = data;
@@ -12,14 +11,14 @@ function mainController($scope, $http) {
   $scope.createItem = function() {
     $http.post('/api/item/create', $scope.formData).success(function(data) {
       $scope.formData = {};
-	  $scope.items = data;
-	}).error(function(err) {
-	  console.log(err);
-	});
+	    $scope.items = data;
+	  }).error(function(err) {
+	    console.log(err);
+	  });
   };
 
-  $scope.updateItem = function(id) {
-    $http.post('/api/item/update/' + id).success(function(data) {
+  $scope.updateItem = function(id, val) {
+    $http.post('/api/item/update/' + id, {status: val}).success(function(data) {
       $scope.items = data;
     }).error(function(err) {
       console.log(err);
@@ -33,5 +32,4 @@ function mainController($scope, $http) {
       console.log(err);
 	});
   };
-
-}
+});

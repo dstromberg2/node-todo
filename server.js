@@ -21,7 +21,9 @@ app.use(bodyParser.urlencoded({'extended':'true'}));
 app.use(bodyParser.json());
 
 app.get('/api/item/list', function(req, res) {
-  res.json(getAll(Item));
+  Item.findAll().then(function(items) {
+    res.json(items);
+  });
 });
 
 app.post('/api/item/create', function(req, res) {
