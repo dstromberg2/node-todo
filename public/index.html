@@ -7,6 +7,11 @@
 	<title>ToDo app in Node</title>
 	
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+		.centered {
+			text-align: center;
+		}
+	</style>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -19,6 +24,14 @@
 
 
 		<div id="item-list" class="container">
+			<div class="row">
+				<div class="col-xs-6 col-xs-offset-3 centered"><h2>ToDo Items</h2></div>
+			</div>
+			<div class="row">
+				<div class="col-xs-3 centered"><h4>Title</h4></div>
+				<div class="col-xx-5 centered"><h4>Body</h4></div>
+				<div class="col-xs-1 centered"><h4>Completed?</h4></div>
+			</div>
 			<div class="row" ng-repeat="item in items">
 				<div class="col-xs-3">{{ item.title }}</div>
 				<div class="col-xs-5">{{ item.body }}</div>
